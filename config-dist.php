@@ -1,6 +1,6 @@
 <?php
  /*
-  * Config for the script
+  * Config for php-svn-lister
   *
   */
 
