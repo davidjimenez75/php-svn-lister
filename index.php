@@ -69,6 +69,7 @@ require_once('config.php');
         .columna1 {
             padding-left:6px;
             min-width: 222px;
+	    border-right: 1px solid lightgrey;
         }
 
         .par {
@@ -142,7 +143,9 @@ require_once('config.php');
 
         $j = 0;
         foreach ($a_lineas as $linea => $valor) {
-            $url = 'http://' . $valor["file"];
+            //$url = 'http://' . $valor["file"].'fakedomain.net';
+            //$url = 'http://' . $valor["file"].'.localhost';
+            $url = $url_svn.$valor["file"].'/';
             $file = $valor["file"] . ".txt";
             $description = "";
             if($j%2==0) {
