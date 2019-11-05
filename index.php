@@ -127,7 +127,7 @@ require_once('config.php');
         $handle = opendir($dir);
 
         while ($file = readdir($handle)) {
-            if ($file != "." && $file != ".." && $file != "index.php") {
+            if ($file != "." && $file != ".." && $file != "index.php" && $file != ".git") {
                 if (is_dir($dir . '/' . $file)) {
                     if ($debug) {
                         echo $dir . '/' . $file . '<br>';
