@@ -1,0 +1,16 @@
+{
+  "name": "php-svn-lister",
+  "version": "1.0.0",
+  "description": "List your repos and allow fast edit the repo description (one line).  Mainly for intranets/vpns.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "vue": "^2.5.8"
+  }
+}
