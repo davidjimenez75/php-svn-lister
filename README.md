@@ -14,8 +14,8 @@ chown www-data:www-data /var/www/html/repos -R
 Edit the config.php with your SVN repo url and folder.
 
 ```
-$url   = 'http://YOUR_SVN_WEBSERVER_HERE/svn/'; // url to you svn webserver
-$dir   = '/var/lib/svn';			// folder with svn repos
+$url_svn   = 'http://YOUR_SVN_WEBSERVER_HERE/svn/'; // url to you svn webserver
+$dir       = '/var/lib/svn';			                  // folder with svn repos
 ```
 
 Now you can click edit the right side of every folder on your browser with descriptions, press Enter to save.
