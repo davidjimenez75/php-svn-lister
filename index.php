@@ -145,7 +145,7 @@ require_once('config.php');
         foreach ($a_lineas as $linea => $valor) {
             //$url = 'http://' . $valor["file"].'fakedomain.net';
             //$url = 'http://' . $valor["file"].'.localhost';
-            $url = $url_svn.$valor["file"].'/';
+            $url = $url_svn.$valor["file"].$url_suffix.'/';
             $file = $valor["file"] . ".txt";
             $description = "";
             if($j%2==0) {
