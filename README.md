@@ -81,7 +81,12 @@ Press Ctrl + F5 to verify is the descriptions are being stored on *.txt files.
 
 # FAQ
 
+### I dont see any folder on the list!
+
+By default the installation script doesn't create any folder, the "node_modules" is ignored by default.
 
 
+### The descriptions are not being stored 
 
+Check the folder write priviledge and ensure you press the Enter key before click on other field.
 
