@@ -28,6 +28,11 @@ $dir        = '/var/lib/svn';                                    // folder with 
 
 Load in you browser: http://YOURSERVER/repos/
 
+Result URL'S:
+
+http://YOURSERVER/svn/dir1
+
+http://YOURSERVER/svn/dir2
 
 
 ## OPTION 2: LIST YOUR FOLDER AS RELATIVES TO SERVER
@@ -49,25 +54,39 @@ $dir        = '/var/www/html';                                  // folder with s
 
 Load in you browser: http://YOURSERVER/
 
+Result URL'S:
+
+http://YOURSERVER/dir1
+
+http://YOURSERVER/dir2
+
 
 ## OPTION 3: LIST YOUR FOLDERS AS SUBDOMAINS
 
 ```bash
 cd /var/www/html
 git clone https://github.com/davidjimenez75/php-svn-lister.git /var/www/html
-cp config-dist-apache2.php config.php
+cp config-dist-subdomains.php config.php
 chown www-data:www-data /var/www/html -R
 ```
 
 Edit the config.php with your url_suffix and folder.
 
 ```
-$url_svn    = 'http://'.$_SERVER['SERVER_NAME'];         // url to you webserver
+$url_svn    = 'http://'; 						         // url to you webserver
 $url_suffix = '.domain.com';                             // add any suffix string to the url?
 $dir        = '/var/www/html';                           // folder with svn repos
 ```
 
 Load in you browser: http://YOURSERVER/
+
+Result URL'S:
+
+http://dir1.domain.com
+
+http://dir2.domain.com
+
+
 
 
 # USE
