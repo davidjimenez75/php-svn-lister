@@ -131,7 +131,13 @@ require_once('config.php');
             if ($file != "." && $file != ".." && $file != "index.php" && $file != ".git" && $file != "node_modules") {
                 if (is_dir($dir . '/' . $file)) {
                     if ($debug) {
-                        echo $dir . '/' . $file . '<br>';
+                        echo "DIR=".$dir . '/' . $file . '<br>';
+                    }
+                    $a_lineas[$i]["file"] = $file;
+                    $i++;
+                }elseif(is_link($dir . '/' . $file)) {
+                    if ($debug) {
+                        echo "LINK=".$dir . '/' . $file . '<br>';
                     }
                     $a_lineas[$i]["file"] = $file;
                     $i++;
