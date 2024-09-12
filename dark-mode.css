@@ -1,0 +1,5 @@
+/* Estilos oscuros */
+
+body.dark-mode {
+    background-color: var(--background-color-dark);
+}

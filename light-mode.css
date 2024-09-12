@@ -1,0 +1,137 @@
+
+/* Estilos globales */
+
+:root {
+    --primary-color: #333; /* Color principal (oscuro) */
+    --secondary-color: #fff; /* Color secundario (claro) */
+    --background-color: #deddda ;
+    --background-color-light: #f0f0f0;
+    --background-color-dark: #333;
+    --background-color-par: #dadada;    
+    --background-color-impar: #eaeaea;
+    --primary-link-color: #007bff;
+    --secondary-link-color: #b30000;
+}
+
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    --primary-color: #fff; /* Color principal (oscuro) */
+    --secondary-color: #333; /* Color secundario (claro) */
+    --background-color: #333;
+    --background-color-light: #f0f0f0;
+    --background-color-dark: #333;
+    --background-color-par: #777;    
+    --background-color-impar: #999;
+    --primary-link-color: #fff;
+    --secondary-link-color: #0d14a4;
+/*
+    --bg-color: #333333;
+    --text-color: #ffffff;
+    --drop-area-bg: #555555;
+    --drop-area-border: #777777;
+    --table-border: #555555;
+    --table-stripe: rgba(255, 255, 255, 0.05);
+    --table-header-bg: #444444;
+    --table-header-color: #ffffff;
+*/    
+}
+
+/* Estilos claros */
+
+A:link, A:visited, A:active {
+    COLOR: var(--primary-link-color);
+    font-family:'Courier New', Courier, monospace;
+}
+
+A:hover {
+    COLOR: var(--secondary-link-color);
+}
+
+.comments {
+    COLOR: var(--secondary-color);
+}
+
+.comments_no {
+    COLOR: var(--secondary-link-color)
+}
+
+.columna1 {
+    border-right: 1px solid var(--primary-color);
+}
+
+.par {
+    background-color: var(--background-color-par);
+    color: var(--primary-color);
+}
+
+.impar {
+    background-color: var(--background-color-impar);
+    color: var(--primary-color);    
+}
+
+.titulo {
+    font-size: 0.75em;
+    text-align: right;
+    color: var(--primary-link-color);
+    padding: 13px;
+    text-decoration: none; 
+}
+
+.descripcion {
+    text-align: left;
+    color: var(--secondary-color);
+}
+
+.info {
+    color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+    padding: 10px;
+}
+
+#titulo {
+    float: right;
+    font-weight: bold;
+    display: none;
+    COLOR: var(--secondary-color);
+}
+
+.cajaeditar {
+    border-color: var(--primary-color);
+    border: 0px;
+    FONT-SIZE: 11px;
+    font-family: "Courier New", Courier, monospace;
+    text-decoration: none;
+
+}
+
+#mode-toggle {
+    float: right;
+    border: none;
+    cursor: pointer;
+}
+
+button {
+    background-color: var(--background-color);;
+}
+
+#info {
+    float: right;
+    border: 1px solid var(--primary-color);
+    color: gray;
+    font-size: 0.75em;
+
+}
+
+td {
+    padding: 0.3em;
+}
+
+input {
+    background-color: var(--background-color-);
+}

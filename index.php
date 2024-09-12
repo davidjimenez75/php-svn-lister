@@ -1,121 +1,29 @@
 <?php
-/*
- *
- * @revision  21
+/**
+ * php-svn-lister
+ * 
+ * List all repositories in a directory and show a description for each one.
+ * 
+ * @revision  2024.09.21
  */
-
-
 require_once('config.php');
-
-
-?>
-<html lang="en">
+?><html lang="en">
 <head>
-<!--    <title><?php echo $_SERVER['SERVER_NAME']; ?></title>  -->
     <title><?php echo $_SERVER['SERVER_NAME']; ?></title>
     <meta charset="UTF-8">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <style type="text/css">
-        <!--
-        body {
-            margin-left: 0px;
-            margin-top: 0px;
-            margin-right: 0px;
-            margin-bottom: 0px;
-        }
-
-        A:link {
-            FONT-SIZE: 11px;
-            COLOR: #0033CC;
-            font-family: "Courier New", Courier, monospace;
-            TEXT-DECORATION: none;
-        }
-
-        A:visited {
-            FONT-SIZE: 11px;
-            COLOR: #0033CC;
-            font-family: "Courier New", Courier, monospace;
-            TEXT-DECORATION: none;
-        }
-
-        A:active {
-            FONT-SIZE: 11px;
-            COLOR: #0033CC;
-            font-family: "Courier New", Courier, monospace;
-            TEXT-DECORATION: none;
-        }
-
-        A:hover {
-            FONT-SIZE: 11px;
-            COLOR: #FF0000;
-            font-family: "Courier New", Courier, monospace;
-            TEXT-DECORATION: none;
-        }
-
-        .comments {
-            FONT-SIZE: 11px;
-            COLOR: #333333;
-            font-family: "Courier New", Courier, monospace;
-            TEXT-DECORATION: none;
-        }
-
-        .comments_no {
-            FONT-SIZE: 11px;
-            COLOR: #ffffff;
-            font-family: "Courier New", Courier, monospace;
-            TEXT-DECORATION: none;
-        }
-
-        .columna1 {
-            padding-left:6px;
-            min-width: 222px;
-	    border-right: 1px solid lightgrey;
-        }
-
-        .par {
-            background-color: #f0f0f0;
-        }
-
-        .impar {
-            background-color: #ffffff;
-        }
-
-        .titulo {
-            text-align: right;
-
-        }
-
-        .descripcion {
-            text-align: left;
-        }
-
-        .info {
-            color: #ccc;
-            float: right;
-            border: 1px solid #efefef;
-            padding: 10px;
-        }
-
-        #titulo {
-            float: right;
-            font-weight: bold;
-            display: none;
-        }
-        .cajaeditar {
-            border-color: white;
-            border:0px;
-            FONT-SIZE: 11px;
-            COLOR: #333333;
-            font-family: "Courier New", Courier, monospace;
-            TEXT-DECORATION: none;
-            outline: none;
-        }
-
-        -->
-    </style>
+    <link rel="stylesheet" type="text/css" href="./light-mode.css">
+    <link rel="stylesheet" type="text/css" href="./dark-mode.css">
 </head>
 
-<body>
+
+<body class="light-mode">
+<!-- Icono flotante -->
+<nav>
+  <button id="mode-toggle" class="mode-button">🌞</button>
+</nav>
+
+
 <?php echo "<div id=\"titulo\">" . $_SERVER['SERVER_NAME'] . "</div>"; ?>
 
 <div id="app">
@@ -157,7 +65,7 @@ require_once('config.php');
             if($j%2==0) {
                 $cssclass = "par";
             }else{
-                $cssclass = "imppar";
+                $cssclass = "impar";
             }
             if (file_exists($file)) {
                 $description = file_get_contents($file);
@@ -178,13 +86,13 @@ require_once('config.php');
 
 
 <?php
-echo '<small class="info">';
+echo '<div id="info" class="info">';
 echo "date =" . date('Y-m-d--His');
 echo "<br>";
 echo "repositories = " . $j;
 echo "<br>";
 echo "dir=$dir";
-echo "</small>";
+echo "</div>";
 
 ?>
 
@@ -194,6 +102,9 @@ echo "</small>";
 
 
 <script type="application/javascript">
+
+    // vue.js - Editar descripciones de los repositorios en linea.
+
     var vm = new Vue({
         el: '#app',
         data: {
@@ -211,6 +122,51 @@ echo "</small>";
             },
         }
     })
+
+
+    // TOGGLE LIGHT/DARK MODE
+
+    // Obtener el botón de cambio de estilo
+    const modeToggle = document.getElementById('mode-toggle');
+
+    // Definir la función que cambia el estilo
+    function toggleMode() {
+        const bodyClass = document.body.classList;
+        
+        // Cambiar entre estilos claros y oscuros
+        if (bodyClass.contains('light-mode')) {
+            bodyClass.remove('light-mode');
+            bodyClass.add('dark-mode');
+            document.getElementById('mode-toggle').innerHTML = '🌚';
+        } else {
+            bodyClass.remove('dark-mode');
+            bodyClass.add('light-mode');
+            document.getElementById('mode-toggle').innerHTML = '🌞';
+        }
+    }
+
+    // Agregar el evento de click al botón
+    modeToggle.addEventListener('click', toggleMode);
+
+
+
+
+    function detectSystemDarkMode() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    function isNightTime() {
+        const hour = new Date().getHours();
+        return hour >= 22 || hour < 9;
+    }
+
+    if (detectSystemDarkMode() || isNightTime()) {
+        toggleMode();
+    }
+
+
+
+
 
 </script>
 
