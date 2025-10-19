@@ -16,6 +16,7 @@ git clone https://github.com/davidjimenez75/php-svn-lister.git /var/www/html/rep
 cd /var/www/html/repos
 cp config-dist-svn.php config.php
 chown www-data:www-data /var/www/html/repos -R
+npm install
 ```
 
 Edit the config.php with your SVN repo url and folder.
@@ -42,6 +43,7 @@ cd /var/www/html
 git clone https://github.com/davidjimenez75/php-svn-lister.git /var/www/html
 cp config-dist-apache2.php config.php
 chown www-data:www-data /var/www/html -R
+npm install
 ```
 
 Edit the config.php if you want to change the root folder:
@@ -68,6 +70,7 @@ cd /var/www/html
 git clone https://github.com/davidjimenez75/php-svn-lister.git /var/www/html
 cp config-dist-subdomains.php config.php
 chown www-data:www-data /var/www/html -R
+npm install
 ```
 
 Edit the config.php with your url_suffix and folder.
