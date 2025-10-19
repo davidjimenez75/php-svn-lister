@@ -98,6 +98,7 @@ require_once('config.php');
 
 
     <?php
+    // Debug info at bottom of page
     echo '<div id="info" class="info">';
     echo "date =" . date('Y-m-d--His');
     echo "<br>";
@@ -109,8 +110,8 @@ require_once('config.php');
     ?>
 
 
-    <script src="./node_modules/vue/dist/vue.js"></script>
-    <script src="./node_modules/axios/dist/axios.js"></script>
+    <script src="./node_modules/vue/dist/vue.js"></script><!-- TODO: udpate to version 3 -->
+    <script src="./node_modules/axios/dist/axios.js"></script><!-- TODO: udpate version is needed by a CVE  -->
 
 
     <script type="application/javascript">
