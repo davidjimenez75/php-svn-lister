@@ -110,30 +110,41 @@ require_once('config.php');
     ?>
 
 
-    <script src="./node_modules/vue/dist/vue.js"></script><!-- TODO: udpate to version 3 -->
-    <script src="./node_modules/axios/dist/axios.js"></script><!-- TODO: udpate version is needed by a CVE  -->
+    <script src="./node_modules/vue/dist/vue.global.js"></script>
+    <script src="./node_modules/axios/dist/axios.js"></script>
 
 
     <script type="application/javascript">
         // vue.js - Editar descripciones de los repositorios en linea.
 
-        var vm = new Vue({
-            el: '#app',
-            data: {
-                contenido: <?php echo json_encode($a_files, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT); ?>,
-                editando: false,
-                grabando: false
+        const { createApp } = Vue;
+
+        const app = createApp({
+            data() {
+                return {
+                    contenido: <?php echo json_encode($a_files, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT); ?>,
+                    editando: false,
+                    grabando: false
+                }
             },
-            mounted: function() {
+            mounted() {
 
             },
             methods: {
-                grabar: function(fichero, contenido) {
+                grabar(fichero, contenido) {
                     console.log("grabando: " + fichero + " --> " + contenido)
                     axios.patch('api.php?file=' + fichero, contenido)
-                },
+                        .then(response => {
+                            console.log("Guardado correctamente:", response.data)
+                        })
+                        .catch(error => {
+                            console.error("Error al guardar:", error)
+                        })
+                }
             }
-        })
+        });
+
+        const vm = app.mount('#app');
 
 
         // TOGGLE LIGHT/DARK MODE
