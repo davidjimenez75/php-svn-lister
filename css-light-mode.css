@@ -1,13 +1,14 @@
-
-/* Estilos globales */
+/* Global styles */
 
 :root {
-    --primary-color: #333; /* Color principal (oscuro) */
-    --secondary-color: #fff; /* Color secundario (claro) */
-    --background-color: #deddda ;
+    --primary-color: #333;
+    /* Color principal (oscuro) */
+    --secondary-color: #fff;
+    /* Color secundario (claro) */
+    --background-color: #deddda;
     --background-color-light: #f0f0f0;
     --background-color-dark: #333;
-    --background-color-par: #dadada;    
+    --background-color-par: #dadada;
     --background-color-impar: #eaeaea;
     --primary-link-color: #007bff;
     --secondary-link-color: #b30000;
@@ -21,16 +22,18 @@ body {
 }
 
 body.dark-mode {
-    --primary-color: #fff; /* Color principal (oscuro) */
-    --secondary-color: #333; /* Color secundario (claro) */
+    --primary-color: #fff;
+    /* Color principal (oscuro) */
+    --secondary-color: #333;
+    /* Color secundario (claro) */
     --background-color: #333;
     --background-color-light: #f0f0f0;
     --background-color-dark: #333;
-    --background-color-par: #777;    
+    --background-color-par: #777;
     --background-color-impar: #999;
     --primary-link-color: #fff;
-    --secondary-link-color: #0d14a4;
-/*
+    --secondary-link-color: #810000;
+    /*
     --bg-color: #333333;
     --text-color: #ffffff;
     --drop-area-bg: #555555;
@@ -39,14 +42,16 @@ body.dark-mode {
     --table-stripe: rgba(255, 255, 255, 0.05);
     --table-header-bg: #444444;
     --table-header-color: #ffffff;
-*/    
+*/
 }
 
 /* Estilos claros */
 
-A:link, A:visited, A:active {
+A:link,
+A:visited,
+A:active {
     COLOR: var(--primary-link-color);
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 A:hover {
@@ -63,6 +68,8 @@ A:hover {
 
 .columna1 {
     border-right: 1px solid var(--primary-color);
+    width: 200px;
+    white-space: nowrap;
 }
 
 .par {
@@ -72,15 +79,15 @@ A:hover {
 
 .impar {
     background-color: var(--background-color-impar);
-    color: var(--primary-color);    
+    color: var(--primary-color);
 }
 
 .titulo {
-    font-size: 0.75em;
+    font-size: 1em;
     text-align: right;
     color: var(--primary-link-color);
     padding: 13px;
-    text-decoration: none; 
+    text-decoration: none;
 }
 
 .descripcion {
@@ -104,7 +111,7 @@ A:hover {
 .cajaeditar {
     border-color: var(--primary-color);
     border: 0px;
-    FONT-SIZE: 11px;
+    font-size: 1em;
     font-family: "Courier New", Courier, monospace;
     text-decoration: none;
 
@@ -117,7 +124,8 @@ A:hover {
 }
 
 button {
-    background-color: var(--background-color);;
+    background-color: var(--background-color);
+    ;
 }
 
 #info {
